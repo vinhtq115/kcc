@@ -121,6 +121,18 @@ class Ui_mainWindow(object):
 
         self.gridLayout_2.addWidget(self.dedupeCoverBox, 4, 0, 1, 1)
 
+        self.parallelBox = QCheckBox(self.optionWidget)
+        self.parallelBox.setObjectName(u"parallelBox")
+
+        self.gridLayout_2.addWidget(self.parallelBox, 5, 0, 1, 1)
+
+        self.parallelTasksBox = QSpinBox(self.optionWidget)
+        self.parallelTasksBox.setObjectName(u"parallelTasksBox")
+        self.parallelTasksBox.setMinimum(2)
+        self.parallelTasksBox.setMaximum(10)
+
+        self.gridLayout_2.addWidget(self.parallelTasksBox, 6, 0, 1, 1)
+
 
         self.gridLayout.addWidget(self.optionWidget, 5, 0, 1, 2)
 
@@ -419,6 +431,13 @@ class Ui_mainWindow(object):
         self.dedupeCoverBox.setToolTip(QCoreApplication.translate("mainWindow", u"<html><head/><body><p>Don't duplicate the first page as the cover. Useful for 2 page spread alignment.</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.dedupeCoverBox.setText(QCoreApplication.translate("mainWindow", u"De-dupe cover", None))
+#if QT_CONFIG(tooltip)
+        self.parallelBox.setToolTip(QCoreApplication.translate("mainWindow", u"<html><head/><body><p>Process multiple files concurrently.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.parallelBox.setText(QCoreApplication.translate("mainWindow", u"Parallel jobs", None))
+#if QT_CONFIG(tooltip)
+        self.parallelTasksBox.setToolTip(QCoreApplication.translate("mainWindow", u"<html><head/><body><p>Number of files to process concurrently.</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.gammaLabel.setText(QCoreApplication.translate("mainWindow", u"Gamma: Auto", None))
         self.croppingPowerLabel.setText(QCoreApplication.translate("mainWindow", u"Cropping power:", None))
 #if QT_CONFIG(tooltip)

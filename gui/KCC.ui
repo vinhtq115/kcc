@@ -205,6 +205,29 @@
          </property>
         </widget>
        </item>
+       <item row="5" column="0">
+        <widget class="QCheckBox" name="parallelBox">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Process multiple files concurrently.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Parallel jobs</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QSpinBox" name="parallelTasksBox">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of files to process concurrently.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="minimum">
+          <number>2</number>
+         </property>
+         <property name="maximum">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>
