@@ -619,6 +619,16 @@ class KCCGUI(KCC_ui.Ui_mainWindow):
             GUI.upscaleBox.setEnabled(True)
             GUI.upscaleBox.setChecked(profile['DefaultUpscale'])
 
+    def toggleParallelBox(self, value):
+        if value == 2:
+            self.parallel_tasks = GUI.parallelTasksBox.value()
+        else:
+            self.parallel_tasks = 1
+
+    def changeParallelTasksBox(self, value):
+        if GUI.parallelBox.checkState() == Qt.CheckState.Checked:
+            self.parallel_tasks = value
+
     def changeGamma(self, value):
         valueRaw = int(5 * round(float(value) / 5))
         value = '%.2f' % (float(valueRaw) / 100)
@@ -888,6 +898,7 @@ class KCCGUI(KCC_ui.Ui_mainWindow):
         self.gammaValue = 1.0
         self.croppingPowerValue = 1.0
         self.currentMode = 1
+        self.parallel_tasks = 1
         self.targetDirectory = ''
         self.sentry = Client(release=__version__)
         if sys.platform.startswith('win'):
@@ -1090,6 +1101,8 @@ class KCCGUI(KCC_ui.Ui_mainWindow):
         GUI.qualityBox.stateChanged.connect(self.togglequalityBox)
         GUI.deviceBox.activated.connect(self.changeDevice)
         GUI.formatBox.activated.connect(self.changeFormat)
+        GUI.parallelBox.stateChanged.connect(self.toggleParallelBox)
+        GUI.parallelTasksBox.valueChanged.connect(self.changeParallelTasksBox)
         MW.progressBarTick.connect(self.updateProgressbar)
         MW.modeConvert.connect(self.modeConvert)
         MW.addMessage.connect(self.addMessage)
